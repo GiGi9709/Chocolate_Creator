@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CzekoladaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Czekolada">
+    <Key>
+      <PropertyRef Name="id_czekolada" />
+    </Key>
+    <Property Name="id_czekolada" Type="int" Nullable="false" />
+    <Property Name="id_rodzaj" Type="int" Nullable="false" />
+    <Property Name="id_orzech" Type="int" Nullable="false" />
+    <Property Name="id_owoc" Type="int" Nullable="false" />
+    <Property Name="id_rozmiar" Type="int" Nullable="false" />
+    <Property Name="id_kakao" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kakao">
+    <Key>
+      <PropertyRef Name="id_kakao" />
+    </Key>
+    <Property Name="id_kakao" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orzech">
+    <Key>
+      <PropertyRef Name="id_orzech" />
+    </Key>
+    <Property Name="id_orzech" Type="int" Nullable="false" />
+    <Property Name="rodzaj_orzecha" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Owoc">
+    <Key>
+      <PropertyRef Name="id_owoc" />
+    </Key>
+    <Property Name="id_owoc" Type="int" Nullable="false" />
+    <Property Name="rodzaj_owocu" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rodzaj_czekolady">
+    <Key>
+      <PropertyRef Name="id_rodzaju" />
+    </Key>
+    <Property Name="id_rodzaju" Type="int" Nullable="false" />
+    <Property Name="rodzaj_czekolady" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rozmiar_tabliczki">
+    <Key>
+      <PropertyRef Name="id_rozmiaru" />
+    </Key>
+    <Property Name="id_rozmiaru" Type="int" Nullable="false" />
+    <Property Name="rozmiar_tabliczki" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Czekolada_Kakao">
+    <End Role="Kakao" Type="Self.Kakao" Multiplicity="1" />
+    <End Role="Czekolada" Type="Self.Czekolada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kakao">
+        <PropertyRef Name="id_kakao" />
+      </Principal>
+      <Dependent Role="Czekolada">
+        <PropertyRef Name="id_kakao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Czekolada_Orzech">
+    <End Role="Orzech" Type="Self.Orzech" Multiplicity="1" />
+    <End Role="Czekolada" Type="Self.Czekolada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orzech">
+        <PropertyRef Name="id_orzech" />
+      </Principal>
+      <Dependent Role="Czekolada">
+        <PropertyRef Name="id_orzech" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Czekolada_Owoc">
+    <End Role="Owoc" Type="Self.Owoc" Multiplicity="1" />
+    <End Role="Czekolada" Type="Self.Czekolada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owoc">
+        <PropertyRef Name="id_owoc" />
+      </Principal>
+      <Dependent Role="Czekolada">
+        <PropertyRef Name="id_owoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Czekolada_Rodzaj_czekolady">
+    <End Role="Rodzaj_czekolady" Type="Self.Rodzaj_czekolady" Multiplicity="1" />
+    <End Role="Czekolada" Type="Self.Czekolada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_czekolady">
+        <PropertyRef Name="id_rodzaju" />
+      </Principal>
+      <Dependent Role="Czekolada">
+        <PropertyRef Name="id_rodzaj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Czekolada_Rozmiar_tabliczki">
+    <End Role="Rozmiar_tabliczki" Type="Self.Rozmiar_tabliczki" Multiplicity="1" />
+    <End Role="Czekolada" Type="Self.Czekolada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rozmiar_tabliczki">
+        <PropertyRef Name="id_rozmiaru" />
+      </Principal>
+      <Dependent Role="Czekolada">
+        <PropertyRef Name="id_rozmiar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CzekoladaModelStoreContainer">
+    <EntitySet Name="Czekolada" EntityType="Self.Czekolada" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kakao" EntityType="Self.Kakao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orzech" EntityType="Self.Orzech" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Owoc" EntityType="Self.Owoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rodzaj_czekolady" EntityType="Self.Rodzaj_czekolady" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rozmiar_tabliczki" EntityType="Self.Rozmiar_tabliczki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Czekolada_Kakao" Association="Self.FK_Czekolada_Kakao">
+      <End Role="Kakao" EntitySet="Kakao" />
+      <End Role="Czekolada" EntitySet="Czekolada" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Czekolada_Orzech" Association="Self.FK_Czekolada_Orzech">
+      <End Role="Orzech" EntitySet="Orzech" />
+      <End Role="Czekolada" EntitySet="Czekolada" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Czekolada_Owoc" Association="Self.FK_Czekolada_Owoc">
+      <End Role="Owoc" EntitySet="Owoc" />
+      <End Role="Czekolada" EntitySet="Czekolada" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Czekolada_Rodzaj_czekolady" Association="Self.FK_Czekolada_Rodzaj_czekolady">
+      <End Role="Rodzaj_czekolady" EntitySet="Rodzaj_czekolady" />
+      <End Role="Czekolada" EntitySet="Czekolada" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Czekolada_Rozmiar_tabliczki" Association="Self.FK_Czekolada_Rozmiar_tabliczki">
+      <End Role="Rozmiar_tabliczki" EntitySet="Rozmiar_tabliczki" />
+      <End Role="Czekolada" EntitySet="Czekolada" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CzekoladaModelStoreContainer" CdmEntityContainer="CzekoladaEntities">
+    <EntitySetMapping Name="Czekolada">
+      <EntityTypeMapping TypeName="CzekoladaModel.Czekolada">
+        <MappingFragment StoreEntitySet="Czekolada">
+          <ScalarProperty Name="id_czekolada" ColumnName="id_czekolada" />
+          <ScalarProperty Name="id_rodzaj" ColumnName="id_rodzaj" />
+          <ScalarProperty Name="id_orzech" ColumnName="id_orzech" />
+          <ScalarProperty Name="id_owoc" ColumnName="id_owoc" />
+          <ScalarProperty Name="id_rozmiar" ColumnName="id_rozmiar" />
+          <ScalarProperty Name="id_kakao" ColumnName="id_kakao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kakao">
+      <EntityTypeMapping TypeName="CzekoladaModel.Kakao">
+        <MappingFragment StoreEntitySet="Kakao">
+          <ScalarProperty Name="id_kakao" ColumnName="id_kakao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orzech">
+      <EntityTypeMapping TypeName="CzekoladaModel.Orzech">
+        <MappingFragment StoreEntitySet="Orzech">
+          <ScalarProperty Name="id_orzech" ColumnName="id_orzech" />
+          <ScalarProperty Name="rodzaj_orzecha" ColumnName="rodzaj_orzecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Owoc">
+      <EntityTypeMapping TypeName="CzekoladaModel.Owoc">
+        <MappingFragment StoreEntitySet="Owoc">
+          <ScalarProperty Name="id_owoc" ColumnName="id_owoc" />
+          <ScalarProperty Name="rodzaj_owocu" ColumnName="rodzaj_owocu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rodzaj_czekolady">
+      <EntityTypeMapping TypeName="CzekoladaModel.Rodzaj_czekolady">
+        <MappingFragment StoreEntitySet="Rodzaj_czekolady">
+          <ScalarProperty Name="id_rodzaju" ColumnName="id_rodzaju" />
+          <ScalarProperty Name="rodzaj_czekolady1" ColumnName="rodzaj_czekolady" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rozmiar_tabliczki">
+      <EntityTypeMapping TypeName="CzekoladaModel.Rozmiar_tabliczki">
+        <MappingFragment StoreEntitySet="Rozmiar_tabliczki">
+          <ScalarProperty Name="id_rozmiaru" ColumnName="id_rozmiaru" />
+          <ScalarProperty Name="rozmiar_tabliczki1" ColumnName="rozmiar_tabliczki" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CzekoladaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
